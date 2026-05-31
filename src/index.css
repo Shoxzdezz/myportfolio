@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Premium Dark Portfolio Design System - GTA Urban Vibe */
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 222 47% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 222 47% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 215 50% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 30% 12%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 215 50% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 215 50% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom Premium Variables */
+    --glow-primary: 215 50% 45%;
+    --glow-intensity: 0.3;
+    --navy-deep: 222 47% 8%;
+    --navy-accent: 215 45% 35%;
+    --electric-blue: 215 60% 50%;
+    --surface-elevated: 222 40% 9%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 5%) 0%, hsl(222 47% 10%) 50%, hsl(222 47% 5%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 40% 9%) 0%, hsl(222 47% 6%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(215 50% 45% / 0.08) 0%, transparent 70%);
+    --gradient-text: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(215 40% 70%) 100%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(215 50% 45% / 0.15);
+    --shadow-card: 0 25px 50px -12px hsl(222 50% 3% / 0.6);
+    --shadow-elevated: 0 10px 40px hsl(222 50% 3% / 0.5);
+
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 215 50% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 30% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 215 50% 45%;
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 0 0% 98%;
+    --card: 222 47% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 222 47% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 215 50% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 30% 12%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 222 30% 15%;
+    --muted-foreground: 220 15% 55%;
+    --accent: 215 50% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 50% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 215 50% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-text);
+  }
+
+  .glow-box {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl border border-border/50;
+    background: hsl(var(--card) / 0.8);
+  }
+
+  .hover-glow {
+    @apply transition-colors duration-300;
+  }
+
+  .hover-glow:hover {
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  .nav-blur {
+    @apply backdrop-blur-xl;
+    background: hsl(var(--background) / 0.85);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .glow-pulse {
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 60px hsl(var(--primary) / 0.5);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
